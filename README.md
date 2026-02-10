@@ -1,6 +1,6 @@
 # Ronaldo Ferreira
 
-QA Automation Engineer (em formação) com foco em testes End-to-End e API.
+QA Automation Engineer com foco em testes End-to-End e API.
 
 ---
 
