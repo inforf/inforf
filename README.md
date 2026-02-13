@@ -1,156 +1,172 @@
-# Ronaldo Ferreira
+# Ronaldo Ferreira — QA Portfolio
 
-QA focado em comportamento real do sistema e prevenção de incidentes em produção.
+## O que é este repositório
 
-Este perfil não foi criado apenas para demonstrar automação de testes.
-Ele demonstra como QA pode apoiar decisões de liberação analisando risco real ao usuário.
+Este projeto representa como atuo como QA em um sistema real.
+
+Não é um projeto de programação, e sim de validação de comportamento de software.
+
+Aqui os testes automatizados são utilizados para:
+- reproduzir problemas
+- validar correções
+- evitar regressões após atualizações
+
+Os cenários simulam ações reais de usuários (login, navegação, validações de interface e regras de negócio).
+
+A automação é apenas uma ferramenta.  
+O objetivo principal é garantir que o sistema continue funcionando após mudanças.
+
+---
+
+## Sobre
+
+QA focado em comportamento real de sistemas e prevenção de incidentes em produção.
+
+Este portfólio demonstra como estruturo testes de software observando primeiro o usuário e depois o código.
 
 A pergunta central aqui não é:
+
 > "o sistema funciona?"
 
-É:
-> "o usuário consegue concluir a tarefa com segurança?"
+Mas sim:
+
+> "o usuário consegue continuar trabalhando sem interrupções?"
 
 ---
 
 ## Estrutura do portfólio
 
-O portfólio representa o fluxo completo de qualidade em um produto:
+O conteúdo representa o fluxo completo de qualidade em um produto:
 
-1. observar o comportamento do usuário
+1. observar comportamento do usuário
 2. reproduzir o problema
-3. impedir regressão
+3. investigar a causa
 4. apoiar decisão de release
 
-Cada repositório cobre uma dessas etapas.
+Cada repositório possui uma finalidade dentro desse fluxo.
 
 ---
 
 ## 1 — Observação de comportamento (ambiente real)
 
-🔎 **QA Playground — ambiente público com falhas intencionais**  
+### QA Playground — ambiente com falhas intencionais
 https://inforf.github.io/
 
-O site simula problemas reais de produção:
+Simula situações comuns de produção:
 
-- modal que não fecha
-- carregamento infinito causado por API lenta
-- formulário sem validação
-- problema de acessibilidade (contraste insuficiente)
+- formulário com validação incorreta
+- navegação inconsistente
+- mensagens confusas ao usuário
+- problemas de interface
+- erros de fluxo
 
-O objetivo não é derrubar o sistema.  
-É demonstrar que um sistema pode funcionar tecnicamente e ainda impedir o usuário de concluir a tarefa.
+Objetivo: identificar problemas antes que o usuário precise reportar.
 
-### Coleta de sessões
+### Coleta de sessão
 
-O ambiente utiliza análise de sessão (Microsoft Clarity) para registrar interações reais dos visitantes.
-
-Isso permite observar:
+Utilização de análise de navegação (ex: session replay) para observar:
 
 - cliques repetidos
-- abandono de fluxo
-- tentativa de ações sem resposta
+- retorno para telas anteriores
+- hesitação
 - dificuldade de navegação
 
-O Clarity fornece a evidência visual do comportamento.
+Isso fornece evidência comportamental do problema.
 
 ---
 
 ## 2 — Reprodução e análise (automação + relatório)
 
-🧪 **Automação do QA Playground + geração de relatório**  
+### Automação do QA Playground
 https://github.com/inforf/qa-playground-automation
 
-Os comportamentos observados são reproduzidos em testes automatizados com Playwright.
+Os comportamentos observados são reproduzidos em testes automatizados utilizando Playwright.
 
-Cenários automatizados:
+O foco não é testar o código, e sim validar o comportamento esperado do sistema.
 
-- usuário preso em modal
-- requisição que nunca conclui
-- envio de formulário inválido
-- verificação de acessibilidade básica
+Cobertura:
 
-Após a execução, um processo local analisa os resultados e gera um relatório estruturado contendo:
+- fluxo principal
+- validações de formulário
+- estados inválidos
+- mensagens ao usuário
+- consistência de interface
 
-- resumo técnico
-- impacto para o usuário
+Após cada execução é possível identificar:
+
+- impacto no usuário
 - severidade
-- risco de negócio
-- recomendação
-
-Ou seja, o teste não termina em "passou ou falhou".  
-Ele gera informação para tomada de decisão.
+- frequência
+- necessidade de bloqueio de release
 
 ---
 
 ## 3 — Validação contínua (pipeline e decisão de release)
 
-⚙️ **QA Automation Portfolio (E2E + API + CI)**  
+### QA Automation Portfolio
 https://github.com/inforf/qa-automation-portfolio
 
-Este projeto demonstra automação aplicada a um sistema completo.
+Demonstra validação contínua após alterações no sistema.
 
-Fluxos cobertos:
+Fluxos validados:
 
 - login
 - navegação
 - carrinho
 - checkout
-- confirmação de pedido
-- validação de respostas de API
+- validação de API
 
-A suíte executa automaticamente em CI (GitHub Actions) a cada commit.
+Pipeline executa automaticamente:
 
-Pipeline:
+1. commit
+2. execução E2E
+3. coleta de resultados
+4. decisão de liberação
 
-1. ambiente preparado
-2. aplicação iniciada
-3. testes E2E executados
-4. testes de API executados
-5. falhas bloqueiam a liberação
-
-Aqui o teste deixa de ser verificação manual e passa a apoiar decisão de deploy.
+Objetivo: impedir regressões após deploy.
 
 ---
 
 ## O que este portfólio demonstra
 
-Mais do que automação, o foco é qualidade de produto.
-
-Capacidades demonstradas:
+Mais do que automação, demonstra qualidade de produto:
 
 - análise de comportamento do usuário
-- investigação de falhas
+- investigação de incidentes
 - reprodução de defeitos
-- automação E2E
-- testes de API
+- validação funcional
 - prevenção de regressão
-- geração de relatório técnico
-- integração contínua
 - apoio à decisão de release
+- integração com desenvolvimento
 
 ---
 
 ## Tecnologias
 
-Playwright • TypeScript • Node.js • GitHub Actions • REST API • HTTP • JSON • Session Replay Analysis
+- Playwright
+- TypeScript
+- Node.js
+- GitHub Actions
+- REST API
+- JSON
+- análise de logs
 
 ---
 
 ## Conceito
 
-QA aqui não é tratado como etapa final.
+Qualidade não é a última etapa.
 
-É tratado como antecipação de incidente.
+É antecipação de incidente.
 
 Um sistema pode:
-- não apresentar erro
-- não quebrar
+- não apresentar erro técnico
+- não cair
 - passar em testes funcionais
 
 E ainda assim impedir o usuário de concluir a tarefa.
 
-Qualidade começa quando o impacto ao usuário passa a fazer parte da decisão técnica.
+Qualidade começa quando o impacto no usuário passa a fazer parte da decisão técnica.
 
 ---
 
