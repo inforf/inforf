@@ -1,77 +1,95 @@
 # Ronaldo Ferreira — QA Portfolio
 
-## O que é este repositório
+Qualidade de software não é encontrar defeitos depois da entrega.  
+É impedir que o usuário seja impactado.
 
-Este projeto representa como atuo como QA em um sistema real.
+Meu foco é antecipar falhas antes do release, reduzir risco funcional e dar segurança para a equipe liberar versões com confiança.
 
-Não é um projeto de programação, e sim de validação de comportamento de software.
-
-Aqui os testes automatizados são utilizados para:
-- reproduzir problemas
-- validar correções
-- evitar regressões após atualizações
-
-Os cenários simulam ações reais de usuários (login, navegação, validações de interface e regras de negócio).
-
-A automação é apenas uma ferramenta.  
-O objetivo principal é garantir que o sistema continue funcionando após mudanças.
+Este portfólio demonstra como analiso comportamento de sistemas, identifico riscos, automatizo validações críticas e apoio a decisão de publicação de uma versão.
 
 ---
 
 ## Sobre
 
-QA focado em comportamento real de sistemas e prevenção de incidentes em produção.
+Atuo com análise de comportamento de sistemas web, investigação de incidentes, validação funcional e acompanhamento de releases.
 
-Este portfólio demonstra como estruturo testes de software observando primeiro o usuário e depois o código.
+Minha experiência vem principalmente de ambientes reais de produção, onde aprendi algo importante:
 
-A pergunta central aqui não é:
+Um sistema pode **funcionar tecnicamente** e ainda assim estar errado para o usuário.
 
-> "o sistema funciona?"
+Por isso minha atuação não é baseada apenas em executar casos de teste, mas em entender:
 
-Mas sim:
+- regras de negócio
+- fluxo do usuário
+- impacto de mudanças
+- risco de publicação
 
-> "o usuário consegue continuar trabalhando sem interrupções?"
+O objetivo não é apenas encontrar erros.  
+É evitar que eles cheguem ao cliente.
+
+---
+
+## Filosofia de trabalho
+
+Busco atuar antes do problema chegar ao usuário final.
+
+O papel do QA não é somente reportar defeitos.  
+É criar mecanismos para que eles não aconteçam.
+
+Quando um erro chega em produção, o trabalho não falhou —  
+mas a oportunidade de prevenção existia.
+
+Por isso minha atuação prioriza:
+
+- validação de regras de negócio antes do deploy
+- análise de impacto de mudanças
+- testes em fluxos críticos do usuário
+- automação para evitar regressão
+- evidências para decisão de release
+
+Produção deve ser exceção, não rotina.
 
 ---
 
 ## Estrutura do portfólio
 
-O conteúdo representa o fluxo completo de qualidade em um produto:
+O conteúdo está organizado para representar o ciclo completo de qualidade dentro de um produto:
 
-1. observar comportamento do usuário
-2. reproduzir o problema
-3. investigar a causa
-4. apoiar decisão de release
+1. Observar o comportamento real do sistema
+2. Reproduzir e analisar riscos
+3. Automatizar validações
+4. Apoiar a decisão de release
 
-Cada repositório possui uma finalidade dentro desse fluxo.
+Cada repositório representa uma etapa desse processo.
 
 ---
 
 ## 1 — Observação de comportamento (ambiente real)
 
-### QA Playground — ambiente com falhas intencionais
-https://inforf.github.io/
+### QA Playground — ambiente com falhas intencionais  
+https://inforf.github.io/qa-playground  
+https://inforf.github.io
 
-Simula situações comuns de produção:
+Este projeto simula situações reais que podem ocorrer em aplicações web.
 
-- formulário com validação incorreta
-- navegação inconsistente
-- mensagens confusas ao usuário
-- problemas de interface
-- erros de fluxo
+O objetivo não é demonstrar falhas, mas demonstrar prevenção.
 
-Objetivo: identificar problemas antes que o usuário precise reportar.
+O ambiente foi construído com defeitos intencionais para mostrar como identificar riscos **antes que uma versão seja publicada**.
 
-### Coleta de sessão
+Exemplos de cenários presentes:
 
-Utilização de análise de navegação (ex: session replay) para observar:
+- validação incorreta de formulário
+- mudança de contexto sem revalidação
+- inconsistência de navegação
+- falhas de fluxo do usuário
+- comportamentos inesperados de interface
 
-- cliques repetidos
-- retorno para telas anteriores
-- hesitação
-- dificuldade de navegação
+Aqui o foco não é apenas executar testes, mas observar:
 
-Isso fornece evidência comportamental do problema.
+- como o usuário interage
+- onde ocorre fricção
+- onde existe risco de erro humano
+- qual impacto de negócio o problema causa
 
 ---
 
@@ -80,35 +98,49 @@ Isso fornece evidência comportamental do problema.
 ### Automação do QA Playground
 https://github.com/inforf/qa-playground-automation
 
-Os comportamentos observados são reproduzidos em testes automatizados utilizando Playwright.
+Os comportamentos observados são reproduzidos automaticamente usando **Playwright**.
 
-O foco não é testar o código, e sim validar o comportamento esperado do sistema.
+A automação executa:
 
-Cobertura:
+- fluxos críticos
+- validações funcionais
+- verificação de comportamento
+- coleta de evidências
 
-- fluxo principal
-- validações de formulário
-- estados inválidos
-- mensagens ao usuário
-- consistência de interface
+Após a execução:
 
-Após cada execução é possível identificar:
+1. Os testes geram relatórios estruturados
+2. O relatório é enviado para uma IA rodando localmente (Ollama)
+3. A IA analisa o resultado
+4. É gerado um relatório interpretado
 
-- impacto no usuário
-- severidade
-- frequência
-- necessidade de bloqueio de release
+A automação não serve apenas para executar testes.
+
+Ela funciona como uma validação automatizada de release:  
+o relatório gerado permite avaliar rapidamente se a versão pode ser entregue com segurança.
+
+A IA local interpreta os resultados para transformar evidência técnica em informação compreensível para decisão.
+
+Ou seja, não é apenas "teste passou ou falhou".  
+É **apoio à decisão de publicação**.
 
 ---
 
-## 3 — Validação contínua (pipeline e decisão de release)
+## 3 — Validação contínua (pipeline e regressão)
 
 ### QA Automation Portfolio
 https://github.com/inforf/qa-automation-portfolio
 
-Demonstra validação contínua após alterações no sistema.
+Este projeto é independente do Playground.
 
-Fluxos validados:
+Ele demonstra automação aplicada em diferentes aplicações de teste públicas para demonstrar conhecimento em:
+
+- automação E2E
+- testes de API
+- regressão automatizada
+- CI/CD
+
+Fluxos automatizados incluem:
 
 - login
 - navegação
@@ -116,57 +148,64 @@ Fluxos validados:
 - checkout
 - validação de API
 
-Pipeline executa automaticamente:
+Pipeline executado via GitHub Actions:
 
-1. commit
-2. execução E2E
-3. coleta de resultados
-4. decisão de liberação
+1. execução automática
+2. testes E2E
+3. geração de relatório
+4. evidências anexadas
+5. bloqueio em caso de falha
 
-Objetivo: impedir regressões após deploy.
+O objetivo é demonstrar como a automação protege o sistema contra regressões após alterações.
 
 ---
 
 ## O que este portfólio demonstra
 
-Mais do que automação, demonstra qualidade de produto:
+Mais do que ferramentas, o foco é qualidade de produto.
+
+Capacidades apresentadas:
 
 - análise de comportamento do usuário
-- investigação de incidentes
-- reprodução de defeitos
-- validação funcional
-- prevenção de regressão
+- identificação de risco funcional
+- reprodução estruturada de defeitos
+- documentação clara
+- automação E2E
+- testes de API
+- validação de regressão
+- integração contínua
 - apoio à decisão de release
-- integração com desenvolvimento
 
 ---
 
 ## Tecnologias
 
 - Playwright
-- TypeScript
+- TypeScript / JavaScript
 - Node.js
 - GitHub Actions
 - REST API
-- JSON
-- análise de logs
+- HTML / CSS
+- Análise de logs
+- Relatórios automatizados
+- IA local (Ollama)
 
 ---
 
 ## Conceito
 
-Qualidade não é a última etapa.
+Software de qualidade não é aquele sem bugs.
+É aquele em que o usuário não sofre o impacto das falhas.
 
-É antecipação de incidente.
+O objetivo do QA não é bloquear deploy.
+É evitar que a equipe descubra problemas através do cliente.
 
-Um sistema pode:
-- não apresentar erro técnico
-- não cair
-- passar em testes funcionais
+Quanto mais cedo o risco é identificado, menor o custo, menor o impacto e maior a confiança na entrega.
 
-E ainda assim impedir o usuário de concluir a tarefa.
+Qualidade não é uma etapa do projeto.  
+É um sistema de prevenção.
 
-Qualidade começa quando o impacto no usuário passa a fazer parte da decisão técnica.
+Atuar junto ao time, de forma colaborativa e integrada, fortalece as entregas, melhora a comunicação entre áreas e facilita a prevenção de problemas antes da publicação.
 
 ---
 
